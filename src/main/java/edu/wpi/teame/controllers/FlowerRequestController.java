@@ -3,14 +3,17 @@ package edu.wpi.teame.controllers;
 import edu.wpi.teame.Database.DatabaseController;
 import edu.wpi.teame.Database.DatabaseServiceController;
 import edu.wpi.teame.entities.ServiceRequestData;
+import edu.wpi.teame.navigation.AutoCompleteComboBox;
 import edu.wpi.teame.navigation.Navigation;
 import edu.wpi.teame.navigation.Screen;
 import io.github.palexdev.materialfx.controls.MFXButton;
-import io.github.palexdev.materialfx.controls.MFXComboBox;
+import io.github.palexdev.materialfx.controls.MFXFilterComboBox;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import org.controlsfx.control.SearchableComboBox;
 import org.json.JSONObject;
 
 public class FlowerRequestController implements IRequestController {
@@ -30,9 +33,9 @@ public class FlowerRequestController implements IRequestController {
   @FXML MFXButton flowerRequestSubmit;
   @FXML MFXTextField recipientName;
   @FXML MFXTextField roomNumber;
-  @FXML MFXComboBox<String> deliveryTime;
-  @FXML MFXComboBox<String> flowerChoice;
-  @FXML MFXComboBox<String> numOfFlowers;
+  @FXML MFXFilterComboBox<String> deliveryTime;
+  @FXML SearchableComboBox<String> flowerChoice;
+  @FXML ComboBox<String> numOfFlowers;
   @FXML MFXTextField notes;
   @FXML MFXTextField assignedStaff;
   @FXML MFXButton cancelButton;
@@ -50,14 +53,16 @@ public class FlowerRequestController implements IRequestController {
     flowerRequestSubmit.setOnMouseClicked(event -> sendRequest());
     cancelButton.setOnMouseClicked(event -> cancelRequest());
     clearForm.setOnMouseClicked(event -> clearForm());
+
+    new AutoCompleteComboBox<String>(numOfFlowers);
   }
 
   public ServiceRequestData sendRequest() {
 
     // Create the json to store the values
     JSONObject requestData = new JSONObject();
-    requestData.put("flowerChoice", flowerChoice.getText());
-    requestData.put("numOfFlowers", numOfFlowers.getText());
+    requestData.put("flowerChoice", flowerChoice.getValue());
+    requestData.put("numOfFlowers", numOfFlowers.getValue());
     requestData.put("deliveryTime", deliveryTime.getText());
     requestData.put("recipientName", recipientName.getText());
     requestData.put("roomNumber", roomNumber.getText());
@@ -88,8 +93,8 @@ public class FlowerRequestController implements IRequestController {
 
   // Clears the current service request fields
   public void clearForm() {
-    flowerChoice.clear();
-    numOfFlowers.clear();
+    flowerChoice.setValue(null);
+    numOfFlowers.setValue(null);
     deliveryTime.clear();
     recipientName.clear();
     roomNumber.clear();
