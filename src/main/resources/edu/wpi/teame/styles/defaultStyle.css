@@ -1,0 +1,18 @@
+.buttonNormal{
+    -fx-text-fill: #FFF;
+    -fx-background-color: #192D5A;
+    -fx-alignment: "CENTER"
+}
+
+.buttonHover{
+    -fx-text-fill: #192D5A;
+    -fx-background-color: #FFF;
+    -fx-border-radius: 5;
+    -fx-border-color: #192D5A;
+    -fx-border-width: 2;
+    -fx-alignment: "CENTER"
+}
+
+.tab-pane-tabRecolor .tab-header-area .tab-header-background {
+    -fx-background-color: #f3f3f3;
+}

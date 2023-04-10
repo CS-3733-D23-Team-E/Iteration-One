@@ -1,6 +1,5 @@
 package edu.wpi.teame.controllers;
 
-import edu.wpi.teame.navigation.ColorPalette;
 import edu.wpi.teame.navigation.Screen;
 import edu.wpi.teame.navigation.Utilities;
 import io.github.palexdev.materialfx.controls.MFXButton;
@@ -35,12 +34,12 @@ public class HomeController {
     Utilities.addButtonHover(flowersButton);
     flowersButton.setOnMouseClicked(event -> Utilities.navigate(Screen.FLOWER_REQUEST));
 
-    Utilities.addButtonHover(signageButton, ColorPalette.DARK_BLUE, ColorPalette.WHITE, true);
+    Utilities.addButtonHover(signageButton);
     signageButton.setOnMouseClicked(event -> Utilities.navigate(Screen.SIGNAGE_TEXT));
 
     databaseViewButton.setOnMouseClicked(event -> Utilities.navigate(Screen.DATABASE_VIEW));
 
-    Utilities.addButtonHover(mealRequestButton, ColorPalette.DARK_BLUE, ColorPalette.WHITE, true);
+    Utilities.addButtonHover(mealRequestButton);
     mealRequestButton.setOnMouseClicked(event -> Utilities.navigate(Screen.MEAL_REQUEST));
   }
 }

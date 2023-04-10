@@ -35,6 +35,8 @@ public class App extends Application {
 
     final Scene scene = new Scene(root);
     primaryStage.setScene(scene);
+
+    scene.getStylesheets().add("" + App.class.getResource("styles/defaultStyle.css"));
     primaryStage.show();
 
     Navigation.navigate(Screen.HOME);
