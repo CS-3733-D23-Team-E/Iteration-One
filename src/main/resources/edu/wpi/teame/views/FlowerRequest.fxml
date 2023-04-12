@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
-<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ScrollPane?>
@@ -19,8 +18,6 @@
 <?import javafx.scene.text.Text?>
 <?import org.controlsfx.control.SearchableComboBox?>
 
-<?import io.github.palexdev.materialfx.controls.MFXFilterComboBox?>
-<?import javafx.scene.control.ComboBox?>
 <BorderPane style="-fx-background-color: #3b63a5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wpi.teame.controllers.FlowerRequestController">
    <center>
       <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b63a5;">
@@ -67,12 +64,12 @@
                               </VBox>
                               <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefWidth="450.0" spacing="5.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Room Number">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Room Name">
                                        <font>
                                           <Font name="Times New Roman" size="16.0" />
                                        </font>
                                     </Text>
-                                    <MFXTextField fx:id="roomNumber" alignment="CENTER" prefHeight="50.0" prefWidth="250.0" />
+                                    <SearchableComboBox fx:id="roomName" maxWidth="250.0" prefHeight="50.0" prefWidth="250.0" />
                                  </children>
                               </VBox>
                               <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="122.0" prefWidth="450.0" spacing="5.0">
@@ -82,7 +79,7 @@
                                           <Font name="Times New Roman" size="16.0" />
                                        </font>
                                     </Text>
-                                    <MFXFilterComboBox fx:id="deliveryTime" alignment="CENTER" prefWidth="250.0" />
+                                    <SearchableComboBox fx:id="deliveryTime" maxWidth="250.0" prefWidth="250.0" />
                                  </children>
                               </VBox>
                               <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="212.0" prefWidth="450.0" spacing="5.0">
@@ -92,7 +89,7 @@
                                           <Font name="Times New Roman" size="16.0" />
                                        </font>
                                     </Text>
-                                    <SearchableComboBox fx:id="flowerChoice" minWidth="-Infinity" prefWidth="50.0" />
+                                    <SearchableComboBox fx:id="flowerChoice" maxWidth="250.0" minWidth="-Infinity" prefWidth="50.0" />
                                  </children>
                               </VBox>
                               <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="290.0" prefWidth="450.0" spacing="5.0">
@@ -102,7 +99,7 @@
                                           <Font name="Times New Roman" size="16.0" />
                                        </font>
                                     </Text>
-                                    <ComboBox fx:id="numOfFlowers" prefWidth="250.0" />
+                                    <SearchableComboBox fx:id="numOfFlowers" maxWidth="250.0" prefWidth="250.0" />
                                  </children>
                               </VBox>
                               <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="123.0" prefWidth="450.0" spacing="5.0">
